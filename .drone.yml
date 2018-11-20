@@ -1,0 +1,22 @@
+kind: pipeline
+name: default
+
+steps:
+  - name: vet
+    image: golang:1.11-stretch
+    pull: always
+    commands:
+      - go get github.com/marqeta/go-dfd/dfd
+      - go get github.com/hashicorp/terraform/plugin
+      - go get github.com/hashicorp/terraform/terraform
+      - go get github.com/hashicorp/terraform/helper/schema
+      - go vet
+  - name: test
+    image: golang:1.11-stretch
+    pull: always
+    commands:
+      - go get github.com/marqeta/go-dfd/dfd
+      - go get github.com/hashicorp/terraform/plugin
+      - go get github.com/hashicorp/terraform/terraform
+      - go get github.com/hashicorp/terraform/helper/schema
+      - go test -cover

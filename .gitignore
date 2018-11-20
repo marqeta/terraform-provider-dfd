@@ -1,0 +1,7 @@
+.terraform/
+terraform-provider-dfd
+*.tf
+terraform.tfstate*
+crash.log
+*.dot
+*.dot.bk
