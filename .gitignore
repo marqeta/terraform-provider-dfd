@@ -5,3 +5,7 @@ terraform.tfstate*
 crash.log
 *.dot
 *.dot.bk
+*.tar.gz
+terraform-provider-dfd_v*
+*.swp
+!examples/*.tf
