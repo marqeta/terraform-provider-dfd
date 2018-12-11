@@ -5,18 +5,15 @@ steps:
   - name: vet
     image: golang:1.11-stretch
     pull: always
+    environment:
+      DEP_VERSION: 0.5.0
+      PACKAGE_NAME: terraform-provider-dfd
     commands:
-      - go get github.com/marqeta/go-dfd/dfd
-      - go get github.com/hashicorp/terraform/plugin
-      - go get github.com/hashicorp/terraform/terraform
-      - go get github.com/hashicorp/terraform/helper/schema
-      - go vet
+      - ./.prep_drone.sh
+      - go vet $PACKAGE_NAME
   - name: test
     image: golang:1.11-stretch
     pull: always
     commands:
-      - go get github.com/marqeta/go-dfd/dfd
-      - go get github.com/hashicorp/terraform/plugin
-      - go get github.com/hashicorp/terraform/terraform
-      - go get github.com/hashicorp/terraform/helper/schema
-      - go test -cover
+      - ./.prep_drone.sh
+      - go test -cover $PACKAGE_NAME
