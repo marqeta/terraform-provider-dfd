@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export PROVIDER_VERSION="0.0.1"
+export PROVIDER_VERSION="0.0.2"
 
 build() {
   export GOOS=$1
@@ -11,10 +11,10 @@ build() {
 }
 
 
-build 'darwin' 'amd64'
-
 build 'linux' 'amd64'
 build 'linux' '386'
 
 build 'windows' 'amd64'
 build 'windows' '386'
+
+build 'darwin' 'amd64'
