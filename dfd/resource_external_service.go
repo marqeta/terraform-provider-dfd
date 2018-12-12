@@ -1,4 +1,4 @@
-package main
+package dfd
 
 import (
 	"github.com/hashicorp/terraform/helper/schema"
